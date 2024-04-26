@@ -6,14 +6,6 @@
  */
 
 function colorModeToggle() {
-  // Function to update theme color meta tag based on mode
-  function updateThemeColor() {
-    const mode = localStorage.getItem("dark-mode") === "true" ? "dark" : "light";
-    const color = getComputedStyle(document.documentElement).getPropertyValue(`--color--background-${mode}`);
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', color);
-  }
-
-  // Function to handle attribute parsing
   function attr(defaultVal, attrVal) {
     const defaultValType = typeof defaultVal;
     if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
@@ -92,9 +84,6 @@ function colorModeToggle() {
         element.setAttribute("aria-pressed", togglePressed);
       });
     }
-
-    // Update theme color meta tag
-    updateThemeColor();
   }
 
   function checkPreference(e) {
@@ -127,5 +116,4 @@ function colorModeToggle() {
     });
   });
 }
-
 colorModeToggle();
